@@ -1,0 +1,5 @@
+dist/
+node_modules/
+papayacraft-*/
+package-lock.json
+*.log

@@ -1,0 +1,23 @@
+{
+  "name": "papaya-installer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "dev": "tsc && node .",
+    "CRAFT_VERSION": "0.1.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "minecraft-folder-path": "^1.2.0",
+    "node-fetch": "^2.6.1",
+    "ora": "^5.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^15.0.2",
+    "@types/node-fetch": "^2.5.10",
+    "typescript": "^4.2.4"
+  }
+}
