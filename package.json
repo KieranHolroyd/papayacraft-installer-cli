@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/src/index.js",
+  "bin": "dist/src/bin.js",
   "scripts": {
+    "build": "tsc && pkg -t node14-win,node14-macos .",
     "dev": "tsc && node .",
     "CRAFT_VERSION": "0.1.0"
   },

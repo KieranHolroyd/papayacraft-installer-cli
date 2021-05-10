@@ -3,3 +3,5 @@ node_modules/
 papayacraft-*/
 package-lock.json
 *.log
+papaya-installer-macos
+papaya-installer-win.exe
