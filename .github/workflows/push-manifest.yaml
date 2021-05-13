@@ -10,5 +10,5 @@ jobs:
         uses: google-github-actions/upload-cloud-storage@main
         with:
           credentials: ${{ secrets.gcp_credentials }}
-          path: /pack-manifest.json
+          path: ./pack-manifest.json
           destination: papayacraft-downloads/pack-manifest.json
