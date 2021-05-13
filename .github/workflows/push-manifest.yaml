@@ -11,4 +11,4 @@ jobs:
         with:
           credentials: ${{ secrets.gcp_credentials }}
           path: ./pack-manifest.json
-          destination: papayacraft-downloads/pack-manifest.json
+          destination: papayacraft-downloads
