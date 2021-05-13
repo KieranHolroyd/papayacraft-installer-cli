@@ -15,7 +15,7 @@ async function timeout(ms: number = 500) {
     setTimeout(resolve, ms);
   });
 }
-async function prompt(query: string) {
+async function prompt(query: string): Promise<string> {
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
@@ -40,12 +40,29 @@ async function child(
     }
   });
 }
-const papayacraft_version = scripts.CRAFT_VERSION;
-const spinner = ora(`Installing Papayacraft v${papayacraft_version}`).start();
+const spinner = ora();
+let spinner_started = false;
 
 async function main() {
+  const papayacraft_manifest = await (
+    await fetch(
+      "https://storage.googleapis.com/papayacraft-downloads/pack-manifest.json"
+    )
+  ).json();
+  const papayacraft_version = papayacraft_manifest["modpack-version"];
+  if (
+    (
+      await prompt(
+        `Do you want to install Papayacraft v${papayacraft_version} (Y/n) `
+      )
+    ).toLowerCase() === "n"
+  ) {
+    return 0;
+  }
+
+  spinner.start(`Installing Papayacraft v${papayacraft_version}`);
+  spinner_started = true;
   await timeout(100);
-  spinner.succeed();
   spinner.text = "Downloading Forge 36.1.1 for Minecraft 1.16.5";
   // Install Minecraft Forge
 
@@ -95,7 +112,7 @@ async function main() {
   spinner.succeed(`Successfully Installed at ${install_dir}`);
 }
 const spinner_render_loop = setInterval(() => {
-  spinner.render();
+  if (spinner_started) spinner.render();
 }, 66);
 
 main()

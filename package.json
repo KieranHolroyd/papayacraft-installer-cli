@@ -1,13 +1,12 @@
 {
   "name": "papaya-installer",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "description": "",
   "main": "build/src/index.js",
   "bin": "build/src/bin.js",
   "scripts": {
     "build": "tsc && pkg -t node14-win,node14-macos . --out-path build/",
-    "dev": "tsc && node .",
-    "CRAFT_VERSION": "0.1.0"
+    "dev": "tsc && node ."
   },
   "keywords": [],
   "author": "",
@@ -25,6 +24,7 @@
     "@types/node": "^15.0.2",
     "@types/node-fetch": "^2.5.10",
     "@types/unzipper": "^0.10.3",
+    "pkg": "^5.1.0",
     "typescript": "^4.2.4"
   }
 }
