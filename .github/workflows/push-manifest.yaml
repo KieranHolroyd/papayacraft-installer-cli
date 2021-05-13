@@ -1,0 +1,14 @@
+name: Push manifest to Google cloud storage
+on: [push]
+jobs:
+  Upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - id: upload-file
+        uses: google-github-actions/upload-cloud-storage@main
+        with:
+          credentials: ${{ secrets.gcp_credentials }}
+          path: /pack-manifest.json
+          destination: papayacraft-downloads/pack-manifest.json
