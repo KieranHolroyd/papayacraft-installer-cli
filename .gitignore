@@ -6,3 +6,4 @@ package-lock.json
 papaya-installer-macos
 papaya-installer-win.exe
 build/
+*-papayacraft/
